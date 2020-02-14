@@ -14,8 +14,15 @@ namespace LemonadeStand_3DayStarter
 
         public Day()
         {
+            customers = new List<Customer> { };
+
+         public void populateCustomerList()
+            {
+
+            }
 
 
         }
-    }
+    }   
+    
 }

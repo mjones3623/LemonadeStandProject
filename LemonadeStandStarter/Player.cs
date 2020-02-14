@@ -22,10 +22,14 @@ namespace LemonadeStand_3DayStarter
         {
 
             
+            name = "current player";
             inventory = new Inventory();
             wallet = new Wallet();
         }
-
         // member methods (CAN DO)
+
+
+
+
     }
 }

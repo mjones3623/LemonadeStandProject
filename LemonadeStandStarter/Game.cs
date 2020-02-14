@@ -33,11 +33,13 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine("Lemons = 0");
             Console.WriteLine("Sugar Cubes = 0");
             Console.WriteLine("Cups = 0");
-            Console.WriteLine("Ice Cubes = 0");
+            Console.WriteLine("Ice Cubes = 0\n");
 
             Console.ReadLine();
-        }
 
+
+        }
+        
 
         
 
