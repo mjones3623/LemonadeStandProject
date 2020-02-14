@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Game
+    class Game 
     {
 
-        public int currentDay;
-        public string player1;
-
-        List<int> daysInGame;
+        int currentDay;
+        Player player;
+        List<Day> days;
 
 
         public Game()
         {
-            daysInGame = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
+            days = new List<Day> { };
             
 
         }

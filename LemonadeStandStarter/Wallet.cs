@@ -10,6 +10,7 @@ namespace LemonadeStand_3DayStarter
     {
         private double money;
 
+
         // property - TBD
         public double Money
         {
