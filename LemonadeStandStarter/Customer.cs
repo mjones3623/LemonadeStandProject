@@ -8,7 +8,33 @@ namespace LemonadeStand_3DayStarter
 {
     class Customer
     {
-        public string name;
-        List<string> names;
+        
+
+
+        List<int> names = new List<int>();
+
+        public Customer()
+        {
+
+            AddNamesToList();
+
+
+
+        }
+        public void AddNamesToList()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                
+                names.Add(i);
+            }
+
+        }
+
+
     }
+    
 }
+
+
+

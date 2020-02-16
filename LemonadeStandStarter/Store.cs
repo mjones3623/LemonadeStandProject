@@ -21,6 +21,8 @@ namespace LemonadeStand_3DayStarter
             pricePerSugarCube = .1;
             pricePerIceCube = .01;
             pricePerCup = .25;
+        
+        
         }
 
         // member methods (CAN DO)

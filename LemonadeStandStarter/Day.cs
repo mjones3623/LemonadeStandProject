@@ -6,23 +6,35 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Day 
+    class Day
     {
+        //Variables
         public Weather weather;
-
         public List<Customer> customers;
+
+        //Constructor
 
         public Day()
         {
-            customers = new List<Customer> { };
+            NewWeatherDay();
+            
+        }
 
-         public void populateCustomerList()
-            {
 
-            }
+        //Methods
 
+        public void NewWeatherDay()
+        {
+            weather = new Weather();
 
         }
-    }   
-    
+        public void AddCustomersToList()
+        {
+            
+        }
+
+
+
+
+    }
 }
