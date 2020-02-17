@@ -12,6 +12,7 @@ namespace LemonadeStand_3DayStarter
         string name;
         int conditionBuyerNumber;
         int tempBuyerNumber;
+        int priceBuyerNumber;
 
 
 
@@ -19,9 +20,9 @@ namespace LemonadeStand_3DayStarter
 
         List<string> names = new List<string>();
         //Constructor
-       
 
-        
+
+
         public Customer()
         {
 
@@ -32,13 +33,13 @@ namespace LemonadeStand_3DayStarter
         }
 
         //Methods
-        
+
         //Add 100 names to list.  This is the potential number of customers
         public void AddNamesToList()
         {
             for (int i = 0; i < 100; i++)
             {
-                
+
                 names.Add(name);
             }
 
@@ -50,7 +51,7 @@ namespace LemonadeStand_3DayStarter
                 int rng = new Random().Next(1, 6);
                 conditionBuyerNumber = rng;
             }
-            else if(weather.condition == "overcast")
+            else if (weather.condition == "overcast")
             {
                 int rng = new Random().Next(6, 11);
                 conditionBuyerNumber = rng;
@@ -81,25 +82,25 @@ namespace LemonadeStand_3DayStarter
         }
         public void SellPriceBuyerNumber(Recipe cupPrice)
         {
-            if (recipe.pricePerCup == 70)
+            if (cupPrice.pricePerCup < .35)
             {
                 int rng = new Random().Next(1, 6);
-                tempBuyerNumber = rng;
+                priceBuyerNumber = rng;
             }
-            else if (weather.temperature == 80)
+            else if (cupPrice.pricePerCup > .35 && cupPrice.pricePerCup < .45)
             {
                 int rng = new Random().Next(6, 11);
-                tempBuyerNumber = rng;
+                priceBuyerNumber = rng;
             }
             else
             {
                 int rng = new Random().Next(11, 16);
-                tempBuyerNumber = rng;
+                priceBuyerNumber = rng;
             }
 
 
         }
-    
+    }
 }
 
 

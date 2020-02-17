@@ -30,6 +30,7 @@ namespace LemonadeStand_3DayStarter
         {
             WriteIntroduction();
             day = new Day();
+            
 
             //day.customers[0].ConditionBuyerNumber(day.weather);
 

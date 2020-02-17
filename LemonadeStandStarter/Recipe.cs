@@ -51,7 +51,7 @@ namespace LemonadeStand_3DayStarter
         }
         public void ChangeNumIceRecipe()
         {
-            Console.WriteLine("The pre-set recipe value of the number of ice cubes in a pitcher is 4.  Would you like to change it? Type yes or no");
+            Console.WriteLine("The pre-set recipe value of the number of ice cubes in a pitcher is 10.  Would you like to change it? Type yes or no");
             answer = Console.ReadLine();
 
             if (answer == "yes")
@@ -70,7 +70,7 @@ namespace LemonadeStand_3DayStarter
         }
         public void ChangeNumSugarRecipe()
         {
-            Console.WriteLine("The pre-set recipe value of the number of ice cubes in a pitcher is 4.  Would you like to change it? Type yes or no");
+            Console.WriteLine("The pre-set recipe value of the number of sugar cubes in a pitcher is 4.  Would you like to change it? Type yes or no");
             answer = Console.ReadLine();
             if (answer == "yes")
             {
@@ -86,8 +86,24 @@ namespace LemonadeStand_3DayStarter
                 ChangeNumSugarRecipe();
             }
 
-
-
+        }
+        public void ChangePricePerCup()
+        {
+            Console.WriteLine("The pre-set selling price for a cup of lemonade at your stand is 0.40.  Would you like to change it? Type yes or no");
+            answer = Console.ReadLine();
+            if (answer == "yes")
+            {
+                pricePerCup = Convert.ToInt32(Console.ReadLine());
+            }
+            else if (answer == "no")
+            {
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid option:");
+                ChangePricePerCup();
+            }
 
         }
 
