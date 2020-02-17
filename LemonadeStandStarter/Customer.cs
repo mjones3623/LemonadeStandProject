@@ -60,12 +60,45 @@ namespace LemonadeStand_3DayStarter
                 int rng = new Random().Next(11, 16);
                 conditionBuyerNumber = rng;
             }
-            
         }
-       
+        public void GetTempBuyerNumber(Weather weather)
+        {
+            if (weather.temperature == 70)
+            {
+                int rng = new Random().Next(1, 6);
+                tempBuyerNumber = rng;
+            }
+            else if (weather.temperature == 80)
+            {
+                int rng = new Random().Next(6, 11);
+                tempBuyerNumber = rng;
+            }
+            else
+            {
+                int rng = new Random().Next(11, 16);
+                tempBuyerNumber = rng;
+            }
+        }
+        public void SellPriceBuyerNumber(Recipe cupPrice)
+        {
+            if (recipe.pricePerCup == 70)
+            {
+                int rng = new Random().Next(1, 6);
+                tempBuyerNumber = rng;
+            }
+            else if (weather.temperature == 80)
+            {
+                int rng = new Random().Next(6, 11);
+                tempBuyerNumber = rng;
+            }
+            else
+            {
+                int rng = new Random().Next(11, 16);
+                tempBuyerNumber = rng;
+            }
 
 
-    }
+        }
     
 }
 
