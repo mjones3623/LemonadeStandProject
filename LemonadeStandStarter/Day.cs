@@ -11,11 +11,14 @@ namespace LemonadeStand_3DayStarter
         //Variables
         public Weather weather;
         public List<Customer> customers;
+        public int totalSales;
 
         //Constructor
 
         public Day()
         {
+            totalSales = 0;
+
             NewWeatherDay();
             
         }
@@ -30,7 +33,12 @@ namespace LemonadeStand_3DayStarter
         }
         public void AddCustomersToList()
         {
-            customers[0].ConditionBuyerNumber(weather);
+            // customers[0].ConditionBuyerNumber(weather);
+        }
+
+        public void SellToCustomers()
+        {
+
         }
 
 

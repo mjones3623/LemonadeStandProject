@@ -9,33 +9,30 @@ namespace LemonadeStand_3DayStarter
     class Customer
     {
         //Variables
-        string name;
+        int name;
         int conditionBuyerNumber;
         int tempBuyerNumber;
         int priceBuyerNumber;
+        double buyerNumber;
+        int totalNumberofBuyers;
 
 
 
 
 
-        List<string> names = new List<string>();
+        List<int> names = new List<int>();
         //Constructor
-
-
-
         public Customer()
         {
 
-            AddNamesToList();
-
-
-
+            totalNumberofBuyers = 0;
+            name = 0;
         }
 
         //Methods
 
         //Add 100 names to list.  This is the potential number of customers
-        public void AddNamesToList()
+        public void AddZerosToList()
         {
             for (int i = 0; i < 100; i++)
             {
@@ -43,10 +40,11 @@ namespace LemonadeStand_3DayStarter
                 names.Add(name);
             }
 
+                                                                             
         }
-        public void GetConditionBuyerNumber(Weather weather)
+        public int GetConditionBuyerNumber(Weather weather)
         {
-            if (weather.condition == "rain")
+            if (weather.condition == "rainy")
             {
                 int rng = new Random().Next(1, 6);
                 conditionBuyerNumber = rng;
@@ -61,8 +59,9 @@ namespace LemonadeStand_3DayStarter
                 int rng = new Random().Next(11, 16);
                 conditionBuyerNumber = rng;
             }
+            return conditionBuyerNumber;
         }
-        public void GetTempBuyerNumber(Weather weather)
+        public int GetTempBuyerNumber(Weather weather)
         {
             if (weather.temperature == 70)
             {
@@ -79,27 +78,57 @@ namespace LemonadeStand_3DayStarter
                 int rng = new Random().Next(11, 16);
                 tempBuyerNumber = rng;
             }
+            return tempBuyerNumber;
         }
         public void SellPriceBuyerNumber(Recipe cupPrice)
         {
             if (cupPrice.pricePerCup < .35)
             {
-                int rng = new Random().Next(1, 6);
+                int rng = new Random().Next(11,16);
                 priceBuyerNumber = rng;
             }
             else if (cupPrice.pricePerCup > .35 && cupPrice.pricePerCup < .45)
             {
-                int rng = new Random().Next(6, 11);
+                int rng = new Random().Next(6,11);
                 priceBuyerNumber = rng;
             }
             else
             {
-                int rng = new Random().Next(11, 16);
+                int rng = new Random().Next(1,6);
                 priceBuyerNumber = rng;
             }
 
+            // return priceBuyerNumber;
+        }
+        public double BuyerNumber()
+        {
+            buyerNumber = (conditionBuyerNumber + tempBuyerNumber + priceBuyerNumber) / 3;
+            return buyerNumber;
+        }
+
+        public void RunBuyerDay(Weather weather, Recipe recipe)
+        {
+
+            for (int i = 0; i < 100; i++)
+            {
+                names.Add(name);
+                GetConditionBuyerNumber(weather);
+                GetTempBuyerNumber(weather);
+                SellPriceBuyerNumber(recipe);
+                BuyerNumber();
+                
+                if (buyerNumber>= 7.5)
+                {
+                    totalNumberofBuyers++;
+                }
+                    
+                Console.WriteLine(totalNumberofBuyers);
+                Console.ReadLine();
+            }
+            
 
         }
+
     }
 }
 

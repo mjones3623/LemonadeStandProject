@@ -59,5 +59,13 @@ namespace LemonadeStand_3DayStarter
                 cups.Add(cup);
             }
         }
+        public void DisplayAllInventory()
+        {
+            Console.WriteLine(lemons.Count);
+            Console.WriteLine(sugarCubes.Count);
+            Console.WriteLine(iceCubes.Count);
+            Console.WriteLine(cups.Count);
+        }
+
     }
 }

@@ -12,7 +12,7 @@ namespace LemonadeStand_3DayStarter
         int currentDay;
         Player player;
         List<Day> days;
-        Day day;
+        // Day day;
 
 
         //Constructor
@@ -29,7 +29,7 @@ namespace LemonadeStand_3DayStarter
         public void runGame()
         {
             WriteIntroduction();
-            day = new Day();
+            
             
 
             //day.customers[0].ConditionBuyerNumber(day.weather);
