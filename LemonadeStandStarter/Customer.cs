@@ -8,11 +8,20 @@ namespace LemonadeStand_3DayStarter
 {
     class Customer
     {
+        //Variables
+        string name;
+        int conditionBuyerNumber;
+        int tempBuyerNumber;
+
+
+
+
+
+        List<string> names = new List<string>();
+        //Constructor
+       
+
         
-
-
-        List<int> names = new List<int>();
-
         public Customer()
         {
 
@@ -21,15 +30,39 @@ namespace LemonadeStand_3DayStarter
 
 
         }
+
+        //Methods
+        
+        //Add 100 names to list.  This is the potential number of customers
         public void AddNamesToList()
         {
             for (int i = 0; i < 100; i++)
             {
                 
-                names.Add(i);
+                names.Add(name);
             }
 
         }
+        public void GetConditionBuyerNumber(Weather weather)
+        {
+            if (weather.condition == "rain")
+            {
+                int rng = new Random().Next(1, 6);
+                conditionBuyerNumber = rng;
+            }
+            else if(weather.condition == "overcast")
+            {
+                int rng = new Random().Next(6, 11);
+                conditionBuyerNumber = rng;
+            }
+            else
+            {
+                int rng = new Random().Next(11, 16);
+                conditionBuyerNumber = rng;
+            }
+            
+        }
+       
 
 
     }

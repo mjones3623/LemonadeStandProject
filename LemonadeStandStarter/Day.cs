@@ -30,7 +30,7 @@ namespace LemonadeStand_3DayStarter
         }
         public void AddCustomersToList()
         {
-            
+            customers[0].ConditionBuyerNumber(weather);
         }
 
 
