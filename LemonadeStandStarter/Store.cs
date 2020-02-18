@@ -14,7 +14,11 @@ namespace LemonadeStand_3DayStarter
         private double pricePerIceCube;
         private double pricePerCup;
 
+        public string yesOrNo;
+        public string buyerItemChoice;
+
         public List<string> names;
+
 
         // constructor (SPAWNER)
         public Store()
@@ -24,9 +28,10 @@ namespace LemonadeStand_3DayStarter
             pricePerIceCube = .01;
             pricePerCup = .05;
 
-            names = new List<string> { "lemon", "sugarCube", "IceCube", "cup" };
+            names = new List<string> { "lemon", "sugar", "ice", "cup" };
 
-            
+            yesOrNo = null;
+            buyerItemChoice = null;                      
 
     }
 
@@ -40,7 +45,7 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine("Price per cup:         $0.05\n");
         }
 
-               
+        //Gets user input for amount of items to purchase, calculates the total amount, checks if wallet has enough money.      
         public void SellLemons(Player player)
         {
             int lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");
@@ -51,7 +56,7 @@ namespace LemonadeStand_3DayStarter
                 player.inventory.AddLemonsToInventory(lemonsToPurchase);
             }
         }
-
+        //Gets user input for amount of items to purchase, calculates the total amount, checks if wallet has enough money.
         public void SellSugarCubes(Player player)
         {
             int sugarToPurchase = UserInterface.GetNumberOfItems("sugar");
@@ -62,7 +67,7 @@ namespace LemonadeStand_3DayStarter
                 player.inventory.AddSugarCubesToInventory(sugarToPurchase);
             }
         }
-
+        //Gets user input for amount of items to purchase, calculates the total amount, checks if wallet has enough money.
         public void SellIceCubes(Player player)
         {
             int iceCubesToPurchase = UserInterface.GetNumberOfItems("ice cubes");
@@ -74,6 +79,7 @@ namespace LemonadeStand_3DayStarter
             }
         }
 
+        //Gets user input for amount of items to purchase, calculates the total amount, checks if wallet has enough money.
         public void SellCups(Player player)
         {
             int cupsToPurchase = UserInterface.GetNumberOfItems("cups");
@@ -94,6 +100,62 @@ namespace LemonadeStand_3DayStarter
         private void PerformTransaction(Wallet wallet, double transactionAmount)
         {
             wallet.PayMoneyForItems(transactionAmount);
+        }
+        
+        public void GoShopping(Player player, Wallet wallet, int itemCount, double itemPricePerUnit, double transactionAmount)
+        {
+            Console.WriteLine("Would you like to go shopping?  Type yes or no" );
+            yesOrNo = Console.ReadLine();
+            if(yesOrNo == "yes")
+            {
+                Console.WriteLine("Which item would you like to purchase?  Enter lemon, sugar, ice, or cup");
+                buyerItemChoice = Console.ReadLine();
+
+                if(buyerItemChoice == names[0])
+
+                switch (buyerItemChoice)
+                {
+                    case "lemon":
+                        SellLemons(player);
+                            CalculateTransactionAmount(itemCount, itemPricePerUnit);
+                            PerformTransaction(wallet, transactionAmount);
+                        break;
+                    case "sugar":
+                        SellSugarCubes(player);
+                            CalculateTransactionAmount(itemCount, itemPricePerUnit);
+                            PerformTransaction(wallet, transactionAmount);
+                            break;
+                    case "ice":
+                        SellIceCubes(player);
+                            CalculateTransactionAmount(itemCount, itemPricePerUnit);
+                            PerformTransaction(wallet, transactionAmount);
+                            break;
+                    case "cup":
+                        SellCups(player);
+                            CalculateTransactionAmount(itemCount, itemPricePerUnit);
+                            PerformTransaction(wallet, transactionAmount);
+                            break;
+                    default:
+                        Console.WriteLine("NOT VALID");
+                        Console.WriteLine("Check spelling and case.  Hit enter to continue");
+                            Console.ReadLine();
+                        GoShopping(player, wallet, itemCount, itemPricePerUnit, transactionAmount);
+                        break;
+
+                }
+            }
+            else if (yesOrNo == "no")
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("NOT VALID");
+                Console.WriteLine("Check spelling and case.  Hit enter to continue");
+                Console.ReadLine();
+                GoShopping(player, wallet, itemCount, itemPricePerUnit, transactionAmount);
+            }
+
         }
     }
 }
