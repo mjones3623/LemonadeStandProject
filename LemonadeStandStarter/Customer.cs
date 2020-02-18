@@ -20,6 +20,7 @@ namespace LemonadeStand_3DayStarter
 
 
 
+
         List<int> names = new List<int>();
         //Constructor
         public Customer()
@@ -95,7 +96,7 @@ namespace LemonadeStand_3DayStarter
             return buyerNumber;
         }
 
-        public void RunBuyerDay(Weather weather, Recipe recipe)
+        public void RunBuyerDay(Weather weather, Recipe recipe, Pitcher pitcher, Inventory inventory )
         {
 
             for (int i = 0; i < 100; i++)
@@ -109,10 +110,54 @@ namespace LemonadeStand_3DayStarter
                 if (buyerNumber>= 7.5)
                 {
                     totalNumberofBuyers++;
+                    pitcher.cupsLeftInPitcher--;
+                    if(pitcher.cupsLeftInPitcher == 0)
+                    {
+                        if (inventory.lemons.Count() >= recipe.amountOfLemons)
+                        {
+                            inventory.lemons.RemoveRange(0, recipe.amountOfLemons);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your lemons have been depleted for the day.  This day of selling is over.");
+                        }
+                        if (inventory.sugarCubes.Count() >= recipe.amountOfSugarCubes)
+                        {
+                            inventory.sugarCubes.RemoveRange(0, recipe.amountOfSugarCubes);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your sugar cubes have been depleted for the day.  This day of selling is over.");
+                        }
+                                                    
+                        if (inventory.iceCubes.Count() >= recipe.amountOfIceCubes)
+                        {
+                            inventory.iceCubes.RemoveRange(0, recipe.amountOfIceCubes);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your ice cubes have been depleted for the day.  This day of selling is over.");
+                        }
+                            
+                        if (inventory.cups.Count() >= 1)
+                        {
+                            inventory.cups.Remove(inventory.cups[0]);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your cup inventory has been depleted for the day.  This day of selling is over.");
+                        }
+
+                        
+                        
+                        
+                    }
+
                 }
                     
-                Console.WriteLine(totalNumberofBuyers);
-                Console.ReadLine();
+                
+
+
             }
             
 

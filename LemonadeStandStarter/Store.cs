@@ -102,7 +102,7 @@ namespace LemonadeStand_3DayStarter
             wallet.PayMoneyForItems(transactionAmount);
         }
         
-        public void GoShopping(Player player, Wallet wallet, int itemCount, double itemPricePerUnit, double transactionAmount)
+        public void GoShopping(Player player, Wallet wallet)
         {
             Console.WriteLine("Would you like to go shopping?  Type yes or no" );
             yesOrNo = Console.ReadLine();
@@ -111,49 +111,44 @@ namespace LemonadeStand_3DayStarter
                 Console.WriteLine("Which item would you like to purchase?  Enter lemon, sugar, ice, or cup");
                 buyerItemChoice = Console.ReadLine();
 
-                if(buyerItemChoice == names[0])
-
+                
                 switch (buyerItemChoice)
                 {
                     case "lemon":
                         SellLemons(player);
-                            CalculateTransactionAmount(itemCount, itemPricePerUnit);
-                            PerformTransaction(wallet, transactionAmount);
+                            
                         break;
                     case "sugar":
                         SellSugarCubes(player);
-                            CalculateTransactionAmount(itemCount, itemPricePerUnit);
-                            PerformTransaction(wallet, transactionAmount);
+                        
                             break;
                     case "ice":
                         SellIceCubes(player);
-                            CalculateTransactionAmount(itemCount, itemPricePerUnit);
-                            PerformTransaction(wallet, transactionAmount);
+                           
                             break;
                     case "cup":
                         SellCups(player);
-                            CalculateTransactionAmount(itemCount, itemPricePerUnit);
-                            PerformTransaction(wallet, transactionAmount);
+                            
                             break;
                     default:
                         Console.WriteLine("NOT VALID");
                         Console.WriteLine("Check spelling and case.  Hit enter to continue");
                             Console.ReadLine();
-                        GoShopping(player, wallet, itemCount, itemPricePerUnit, transactionAmount);
+                        GoShopping(player, wallet);
                         break;
 
                 }
             }
             else if (yesOrNo == "no")
             {
-
+                
             }
             else
             {
                 Console.WriteLine("NOT VALID");
                 Console.WriteLine("Check spelling and case.  Hit enter to continue");
                 Console.ReadLine();
-                GoShopping(player, wallet, itemCount, itemPricePerUnit, transactionAmount);
+                GoShopping(player, wallet);
             }
 
         }

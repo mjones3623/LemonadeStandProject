@@ -44,8 +44,18 @@ namespace LemonadeStand_3DayStarter
             //Add to inventory
             Store store = new Store();
             Wallet wallet = new Wallet();
+            Player player = new Player();
             store.DisplayItemPrices();
             wallet.DisplayWalletBallance();
+            store.GoShopping(player, wallet);
+
+            //View and change recipe
+            Recipe recipe = new Recipe();
+            recipe.DisplayRecipe();
+            recipe.ChangeRecipe();
+
+            //Run Day
+
 
 
            
