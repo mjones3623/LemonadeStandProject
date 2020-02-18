@@ -29,5 +29,9 @@ namespace LemonadeStand_3DayStarter
         {
             money -= transactionAmount;
         }
+        public void DisplayWalletBallance()
+        {
+            Console.WriteLine("Your wallet ballance is:  " +Money);
+        }
     }  
 }

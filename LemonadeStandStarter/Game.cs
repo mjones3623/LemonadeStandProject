@@ -28,11 +28,27 @@ namespace LemonadeStand_3DayStarter
         
         public void runGame()
         {
+            //Outside of Day loop
             WriteIntroduction();
             
+            //Establish and display the day's weather
+            Weather weather = new Weather();
+            weather.GetCondition();
+            weather.GetTemperature();
+            weather.DisplayCondition();
             
+            //Display current inventory
+            Inventory inventory = new Inventory();
+            inventory.DisplayAllInventory();
 
-            //day.customers[0].ConditionBuyerNumber(day.weather);
+            //Add to inventory
+            Store store = new Store();
+            Wallet wallet = new Wallet();
+            store.DisplayItemPrices();
+            wallet.DisplayWalletBallance();
+
+
+           
 
 
         }
@@ -53,6 +69,7 @@ namespace LemonadeStand_3DayStarter
 
             Console.ReadLine();
         }
+
         
 
         

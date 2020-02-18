@@ -30,18 +30,7 @@ namespace LemonadeStand_3DayStarter
         }
 
         //Methods
-
-        //Add 100 names to list.  This is the potential number of customers
-        public void AddZerosToList()
-        {
-            for (int i = 0; i < 100; i++)
-            {
-
-                names.Add(name);
-            }
-
-                                                                             
-        }
+        
         public int GetConditionBuyerNumber(Weather weather)
         {
             if (weather.condition == "rainy")

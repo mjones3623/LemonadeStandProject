@@ -61,6 +61,7 @@ namespace LemonadeStand_3DayStarter
         }
         public void DisplayAllInventory()
         {
+            Console.WriteLine("Your corrent inventory is:  ");
             Console.WriteLine(lemons.Count);
             Console.WriteLine(sugarCubes.Count);
             Console.WriteLine(iceCubes.Count);

@@ -44,6 +44,12 @@ namespace LemonadeStand_3DayStarter
             condition = weatherConditionList[randomWeatherNumber];
         }
 
+        //Display Current day's forecast
+        public void DisplayCondition()
+        {
+            Console.WriteLine("Today's condition forecast is:     " +condition);
+            Console.WriteLine("Today's temperature forecast is:   " +temperature);
+        }
 
 
        

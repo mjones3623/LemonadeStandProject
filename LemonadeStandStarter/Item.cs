@@ -11,7 +11,7 @@ namespace LemonadeStand_3DayStarter
         // member variables (HAS A)
 
         public string name;
-        public List<string> names;
+        
 
         // constructor (SPAWNER)
         static Item()
@@ -21,11 +21,12 @@ namespace LemonadeStand_3DayStarter
         }
         public Item()
         {
-            names = new List<string> { "lemon", "sugarCube", "IceCube", "cup", };
+            
         }
 
         // member methods (CAN DO)
 
+       
         
     }
 }

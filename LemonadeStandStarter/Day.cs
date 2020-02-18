@@ -18,8 +18,8 @@ namespace LemonadeStand_3DayStarter
         public Day()
         {
             totalSales = 0;
-
             NewWeatherDay();
+
             
         }
 
@@ -28,18 +28,10 @@ namespace LemonadeStand_3DayStarter
 
         public void NewWeatherDay()
         {
-            weather = new Weather();
+            Weather weather = new Weather();
 
         }
-        public void AddCustomersToList()
-        {
-            // customers[0].ConditionBuyerNumber(weather);
-        }
-
-        public void SellToCustomers()
-        {
-
-        }
+       
 
 
 
