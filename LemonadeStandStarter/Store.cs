@@ -102,9 +102,9 @@ namespace LemonadeStand_3DayStarter
             wallet.PayMoneyForItems(transactionAmount);
         }
         
-        public void GoShopping(Player player, Wallet wallet)
+        public void GoShopping(Player player)
         {
-            Console.WriteLine("Would you like to go shopping?  Type yes or no" );
+            Console.WriteLine("Would you like to go (or continue) shopping?  Type yes or no" );
             yesOrNo = Console.ReadLine();
             if(yesOrNo == "yes")
             {
@@ -116,25 +116,37 @@ namespace LemonadeStand_3DayStarter
                 {
                     case "lemon":
                         SellLemons(player);
-                            
+                        player.inventory.DisplayAllInventory();
+                        player.wallet.DisplayWalletBallance();
+                        GoShopping(player);
+                        
                         break;
                     case "sugar":
                         SellSugarCubes(player);
+                        player.inventory.DisplayAllInventory();
+                        player.wallet.DisplayWalletBallance();
+                        GoShopping(player);
                         
-                            break;
+                        break;
                     case "ice":
                         SellIceCubes(player);
-                           
-                            break;
+                        player.inventory.DisplayAllInventory();
+                        player.wallet.DisplayWalletBallance();
+                        GoShopping(player);
+                        
+                        break;
                     case "cup":
                         SellCups(player);
-                            
-                            break;
+                        player.inventory.DisplayAllInventory();
+                        player.wallet.DisplayWalletBallance();
+                        GoShopping(player);
+                        
+                        break;
                     default:
                         Console.WriteLine("NOT VALID");
                         Console.WriteLine("Check spelling and case.  Hit enter to continue");
                             Console.ReadLine();
-                        GoShopping(player, wallet);
+                        GoShopping(player);
                         break;
 
                 }
@@ -148,7 +160,7 @@ namespace LemonadeStand_3DayStarter
                 Console.WriteLine("NOT VALID");
                 Console.WriteLine("Check spelling and case.  Hit enter to continue");
                 Console.ReadLine();
-                GoShopping(player, wallet);
+                GoShopping(player);
             }
 
         }

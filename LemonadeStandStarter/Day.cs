@@ -19,8 +19,8 @@ namespace LemonadeStand_3DayStarter
         {
             totalSales = 0;
             NewWeatherDay();
+            Weather weather = new Weather();
 
-            
         }
 
 
@@ -28,7 +28,7 @@ namespace LemonadeStand_3DayStarter
 
         public void NewWeatherDay()
         {
-            Weather weather = new Weather();
+            
 
         }
        

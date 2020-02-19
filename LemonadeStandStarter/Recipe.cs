@@ -39,8 +39,8 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine("This is your current recipe and selling price (per cup).  The number of recipe items represent the number per pitcher.\n");
             Console.WriteLine("Number of lemons per pitcher:          " + amountOfLemons);
             Console.WriteLine("Number of sugar cubes per pitcher:     " + amountOfSugarCubes);
-            Console.WriteLine("Number of ice cubes pitcher:         \n" + amountOfIceCubes);
-            Console.WriteLine("This is your current selling price:  \n" + pricePerCup);
+            Console.WriteLine("Number of ice cubes pitcher:           " + amountOfIceCubes);
+            Console.WriteLine("This is your current selling price:    " + pricePerCup);
             Console.WriteLine("Hit enter to continue.....");
             Console.WriteLine();
         }
@@ -58,29 +58,31 @@ namespace LemonadeStand_3DayStarter
                 {
                     case "lemon":
                         ChangeNumLemRecipe();
+                        DisplayRecipe();
                         ChangeRecipe();
                         break;
                     case "ice":
                         ChangeNumIceRecipe();
+                        DisplayRecipe();
                         ChangeRecipe();
                         break;
                     case "sugar":
                         ChangeNumSugarRecipe();
+                        DisplayRecipe();
                         ChangeRecipe();
                         break;
                     case "price":
                         ChangePricePerCup();
+                        DisplayRecipe();
                         ChangeRecipe();
                         break;
-                    default:
-                        ChangeRecipe();
-                        break;
+                   
 
                 }
             }
             else if (recipeAnswer == "no")
             {
-
+                Console.WriteLine("Done with recipe changes");
             }
             else
             {
@@ -158,7 +160,7 @@ namespace LemonadeStand_3DayStarter
             if (answer == "yes")
             {
                 Console.WriteLine("please enter the new PRICE PER CUP you would like to charge your customers.");
-                pricePerCup = Convert.ToInt32(Console.ReadLine());
+                pricePerCup = Convert.ToDouble(Console.ReadLine());
             }
             else if (answer == "no")
             {

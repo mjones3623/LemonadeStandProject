@@ -31,7 +31,13 @@ namespace LemonadeStand_3DayStarter
         }
         public void DisplayWalletBallance()
         {
-            Console.WriteLine("Your wallet ballance is:  " +Money);
+            Console.WriteLine("Your wallet ballance is:  " +money);
         }
+        public void AddMoneyForSale(Recipe recipe)
+        {
+            money += recipe.pricePerCup;
+        }
+
+
     }  
 }

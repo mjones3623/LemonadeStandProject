@@ -15,13 +15,9 @@ namespace LemonadeStand_3DayStarter
         int priceBuyerNumber;
         double buyerNumber;
         int totalNumberofBuyers;
+        
 
-
-
-
-
-
-        List<int> names = new List<int>();
+        List<string> names = new List<string>();
         //Constructor
         public Customer()
         {
@@ -44,9 +40,9 @@ namespace LemonadeStand_3DayStarter
                 int rng = new Random().Next(6, 11);
                 conditionBuyerNumber = rng;
             }
-            else
+            else   //is sunny
             {
-                int rng = new Random().Next(11, 16);
+                int rng = new Random().Next(11, 16);  
                 conditionBuyerNumber = rng;
             }
             return conditionBuyerNumber;
@@ -63,7 +59,7 @@ namespace LemonadeStand_3DayStarter
                 int rng = new Random().Next(6, 11);
                 tempBuyerNumber = rng;
             }
-            else
+            else //temp is 90
             {
                 int rng = new Random().Next(11, 16);
                 tempBuyerNumber = rng;
@@ -96,59 +92,65 @@ namespace LemonadeStand_3DayStarter
             return buyerNumber;
         }
 
-        public void RunBuyerDay(Weather weather, Recipe recipe, Pitcher pitcher, Inventory inventory )
+        public void RunBuyerDay(Weather weather, Player player)
         {
-
             for (int i = 0; i < 100; i++)
             {
-                names.Add(name);
+                names.Add("buyer");
+            }
+            
+            for (int i = 0; i < names.Count(); i++)
+            {
+                
                 GetConditionBuyerNumber(weather);
                 GetTempBuyerNumber(weather);
-                SellPriceBuyerNumber(recipe);
+                SellPriceBuyerNumber(player.recipe);
                 BuyerNumber();
                 
                 if (buyerNumber>= 7.5)
                 {
+                    Console.WriteLine(names[i]+ " is a buyer");
+                    player.wallet.AddMoneyForSale(player.recipe);
                     totalNumberofBuyers++;
-                    pitcher.cupsLeftInPitcher--;
-                    if(pitcher.cupsLeftInPitcher == 0)
+                    player.pitcher.cupsLeftInPitcher--;
+                    if(player.pitcher.cupsLeftInPitcher == 0)
                     {
-                        if (inventory.lemons.Count() >= recipe.amountOfLemons)
+                        if (player.inventory.lemons.Count() >= player.recipe.amountOfLemons)
                         {
-                            inventory.lemons.RemoveRange(0, recipe.amountOfLemons);
+                            player.inventory.lemons.RemoveRange(0, player.recipe.amountOfLemons);
                         }
                         else
                         {
                             Console.WriteLine("Your lemons have been depleted for the day.  This day of selling is over.");
                         }
-                        if (inventory.sugarCubes.Count() >= recipe.amountOfSugarCubes)
+                        if (player.inventory.sugarCubes.Count() >= player.recipe.amountOfSugarCubes)
                         {
-                            inventory.sugarCubes.RemoveRange(0, recipe.amountOfSugarCubes);
+                            player.inventory.sugarCubes.RemoveRange(0, player.recipe.amountOfSugarCubes);
                         }
                         else
                         {
                             Console.WriteLine("Your sugar cubes have been depleted for the day.  This day of selling is over.");
                         }
                                                     
-                        if (inventory.iceCubes.Count() >= recipe.amountOfIceCubes)
+                        if (player.inventory.iceCubes.Count() >= player.recipe.amountOfIceCubes)
                         {
-                            inventory.iceCubes.RemoveRange(0, recipe.amountOfIceCubes);
+                            player.inventory.iceCubes.RemoveRange(0, player.recipe.amountOfIceCubes);
                         }
                         else
                         {
                             Console.WriteLine("Your ice cubes have been depleted for the day.  This day of selling is over.");
                         }
                             
-                        if (inventory.cups.Count() >= 1)
+                        if (player.inventory.cups.Count() >= 1)
                         {
-                            inventory.cups.Remove(inventory.cups[0]);
+                            player.inventory.cups.Remove(player.inventory.cups[0]);
                         }
                         else
                         {
                             Console.WriteLine("Your cup inventory has been depleted for the day.  This day of selling is over.");
                         }
 
-                        
+                        Console.ReadLine();
                         
                         
                     }
@@ -162,6 +164,64 @@ namespace LemonadeStand_3DayStarter
             
 
         }
+
+
+        public void CustomerMakesDecisionTEST()
+        {
+
+            //GetConditionBuyerNumber(weather);
+            //GetTempBuyerNumber(weather);
+            //SellPriceBuyerNumber(recipe);
+            //BuyerNumber();
+
+            //if (buyerNumber >= 7.5)
+            //{
+            //    Console.WriteLine(names[i] + " is a buyer");
+            //    wallet.AddMoneyForSale(recipe);
+            //    totalNumberofBuyers++;
+            //    pitcher.cupsLeftInPitcher--;
+            //    if (pitcher.cupsLeftInPitcher == 0)
+            //    {
+            //        if (inventory.lemons.Count() >= recipe.amountOfLemons)
+            //        {
+            //            inventory.lemons.RemoveRange(0, recipe.amountOfLemons);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Your lemons have been depleted for the day.  This day of selling is over.");
+            //        }
+            //        if (inventory.sugarCubes.Count() >= recipe.amountOfSugarCubes)
+            //        {
+            //            inventory.sugarCubes.RemoveRange(0, recipe.amountOfSugarCubes);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Your sugar cubes have been depleted for the day.  This day of selling is over.");
+            //        }
+
+            //        if (inventory.iceCubes.Count() >= recipe.amountOfIceCubes)
+            //        {
+            //            inventory.iceCubes.RemoveRange(0, recipe.amountOfIceCubes);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Your ice cubes have been depleted for the day.  This day of selling is over.");
+            //        }
+
+            //        if (inventory.cups.Count() >= 1)
+            //        {
+            //            inventory.cups.Remove(inventory.cups[0]);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Your cup inventory has been depleted for the day.  This day of selling is over.");
+            //        }
+
+            //        Console.ReadLine();
+
+
+            //    }
+            }
 
     }
 }
