@@ -18,20 +18,7 @@ namespace LemonadeStand_3DayStarter
 
 
 
-            //Player player = new Player();
-            //Customer customer = new Customer();
-            //Weather weather = new Weather();
-            //Recipe recipe = new Recipe();
-            //Pitcher pitcher = new Pitcher();
-            //Wallet wallet = new Wallet();
-
-            //recipe.pricePerCup = .5;
-
-            //Store store = new Store();
-
-            //store.SellLemons(player);
-
-            //Console.ReadLine();
+           
         }
     }
 }

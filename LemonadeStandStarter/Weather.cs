@@ -14,17 +14,20 @@ namespace LemonadeStand_3DayStarter
         public int temperature;
         List<string> weatherConditionList;
         List<int> temperatureList;
+        public Random rnd;
+        public Random rnd2;
 
         //Constructor
         public Weather()
         {
-                    
-                     
-            weatherConditionList = new List<string> { "rainy", "overcast", "sunny" };
-            temperatureList = new List<int> { 70, 80, 90, 100 };
 
-            GetTemperature();
-            GetCondition();
+            rnd = new Random();
+            rnd2 = new Random();
+            
+            weatherConditionList = new List<string> { "rainy", "overcast", "sunny" };
+            temperatureList = new List<int> { 70, 80, 90};
+
+            
 
 
 
@@ -32,15 +35,15 @@ namespace LemonadeStand_3DayStarter
 
         //Methods
 
-        public void GetTemperature()
+        public void GetTemperature(Random rnd)
         {
-            int randomTemperatureNumber = new Random().Next(0, 3);
+            int randomTemperatureNumber = rnd.Next(0, 2);
             temperature = temperatureList[randomTemperatureNumber];
 
         }
-        public void GetCondition()
+        public void GetCondition(Random rnd2)
         {
-            int randomWeatherNumber = new Random().Next(0, 2);
+            int randomWeatherNumber = rnd2.Next(0, 2);
             condition = weatherConditionList[randomWeatherNumber];
         }
 

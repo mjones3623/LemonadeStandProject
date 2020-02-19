@@ -14,7 +14,7 @@ namespace LemonadeStand_3DayStarter
         int tempBuyerNumber;
         int priceBuyerNumber;
         double buyerNumber;
-        int totalNumberofBuyers;
+        public int totalNumberofBuyers;
         
 
         List<string> names = new List<string>();
@@ -107,8 +107,10 @@ namespace LemonadeStand_3DayStarter
                 SellPriceBuyerNumber(player.recipe);
                 BuyerNumber();
                 
-                if (buyerNumber>= 7.5)
+                if (buyerNumber>= 5 && player.pitcher.cupsLeftInPitcher > 0 && player.inventory.cups.Count() > 1 && player.inventory.lemons.Count() > player.recipe.amountOfLemons && player.inventory.sugarCubes.Count() > player.recipe.amountOfSugarCubes && player.inventory.iceCubes.Count() > player.recipe.amountOfIceCubes)
                 {
+                    
+                    
                     Console.WriteLine(names[i]+ " is a buyer");
                     player.wallet.AddMoneyForSale(player.recipe);
                     totalNumberofBuyers++;
@@ -118,27 +120,46 @@ namespace LemonadeStand_3DayStarter
                         if (player.inventory.lemons.Count() >= player.recipe.amountOfLemons)
                         {
                             player.inventory.lemons.RemoveRange(0, player.recipe.amountOfLemons);
+
+                            if (player.inventory.lemons.Count() < player.recipe.amountOfLemons)
+                            {
+                                Console.WriteLine("Your lemons have been depleted for the day.  This day of selling is over.  You must replentish if you have enough in your wallet.");
+                            }
+
                         }
                         else
                         {
                             Console.WriteLine("Your lemons have been depleted for the day.  This day of selling is over.");
+                            
                         }
                         if (player.inventory.sugarCubes.Count() >= player.recipe.amountOfSugarCubes)
                         {
                             player.inventory.sugarCubes.RemoveRange(0, player.recipe.amountOfSugarCubes);
+
+                            if (player.inventory.sugarCubes.Count() < player.recipe.amountOfSugarCubes)
+                            {
+                                Console.WriteLine("Your sugar cubes have been depleted for the day.  This day of selling is over.  You must replentish if you have enough in your wallet.");
+                            }
                         }
                         else
                         {
                             Console.WriteLine("Your sugar cubes have been depleted for the day.  This day of selling is over.");
+                            
                         }
                                                     
                         if (player.inventory.iceCubes.Count() >= player.recipe.amountOfIceCubes)
                         {
                             player.inventory.iceCubes.RemoveRange(0, player.recipe.amountOfIceCubes);
+
+                            if (player.inventory.iceCubes.Count() < player.recipe.amountOfIceCubes)
+                            {
+                                Console.WriteLine("Your ice cubes have been depleted for the day.  This day of selling is over.  You must replentish if you have enough in your wallet.");
+                            }
                         }
                         else
                         {
                             Console.WriteLine("Your ice cubes have been depleted for the day.  This day of selling is over.");
+                            
                         }
                             
                         if (player.inventory.cups.Count() >= 1)
@@ -148,22 +169,30 @@ namespace LemonadeStand_3DayStarter
                         else
                         {
                             Console.WriteLine("Your cup inventory has been depleted for the day.  This day of selling is over.");
+                            
                         }
+                        //Reset Pitcher to 8 cups
+                        player.pitcher.cupsLeftInPitcher = 8;
 
-                        Console.ReadLine();
-                        
-                        
                     }
 
                 }
-                    
                 
+                
+
+                
+                
+               
+                
+
+
 
 
             }
             
 
         }
+
 
 
         public void CustomerMakesDecisionTEST()
