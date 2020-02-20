@@ -18,19 +18,15 @@ namespace LemonadeStand_3DayStarter
         public Day()
         {
             totalSales = 0;
-            NewWeatherDay();
-            Weather weather = new Weather();
+            
+            
 
         }
 
 
         //Methods
 
-        public void NewWeatherDay()
-        {
-            
-
-        }
+        
        
 
 

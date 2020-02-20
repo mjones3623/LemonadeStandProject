@@ -35,6 +35,8 @@ namespace LemonadeStand_3DayStarter
 
         //Methods
 
+        //Solid principle, Single Responsibility Principle.  These functions do one thing (chooses object from list) and does it well.  Then is used multiple times, in a bigger application, in the Customer class.
+
         public void GetTemperature(Random rnd)
         {
             int randomTemperatureNumber = rnd.Next(0, 2);

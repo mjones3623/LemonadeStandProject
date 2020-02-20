@@ -9,9 +9,9 @@ namespace LemonadeStand_3DayStarter
     class Game 
     {
         //Variables
-        int currentDay;
+        
         Player player;
-        List<Day> days;
+        
         int day;
         Store store = new Store();
 
@@ -31,7 +31,7 @@ namespace LemonadeStand_3DayStarter
 
        
         
-        public void runGame()
+        public void RunGame()
         {
             //Outside of Day loop
 

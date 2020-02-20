@@ -9,7 +9,7 @@ namespace LemonadeStand_3DayStarter
     class Customer
     {
         //Variables
-        int name;
+        
         int conditionBuyerNumber;
         int tempBuyerNumber;
         int priceBuyerNumber;
@@ -23,7 +23,7 @@ namespace LemonadeStand_3DayStarter
         {
 
             totalNumberofBuyers = 0;
-            name = 0;
+           
         }
 
         //Methods
@@ -98,7 +98,7 @@ namespace LemonadeStand_3DayStarter
             {
                 names.Add("buyer");
             }
-            
+            //Open/Closed Principle is used here.  This function is open to extension in that the names list can change, but is closed to modification.
             for (int i = 0; i < names.Count(); i++)
             {
                 
